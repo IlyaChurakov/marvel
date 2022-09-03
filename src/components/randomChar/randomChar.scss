@@ -4,7 +4,8 @@
     display: grid;
     grid-template-columns: repeat(2, 50%);
     align-items: center;
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 5px 5px 20px rgba(255, 255, 255, 0.25);
+    
     &__block {
         padding: 40px 35px;
         display: grid;
@@ -27,10 +28,12 @@
         font-size: 22px;
         line-height: 29px;
         text-transform: uppercase;
+        color: white;
     }
     &__descr {
         font-size: 14px;
         line-height: 18px;
+        color: white;
     }
     &__btns {
         a:nth-child(1) {

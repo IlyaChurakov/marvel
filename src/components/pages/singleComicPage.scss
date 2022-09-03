@@ -14,11 +14,13 @@
         font-weight: bold;
         font-size: 22px;
         line-height: 29px;
+        color: white;
     }
     &__descr {
         font-size: 18px;
         line-height: 24px;
         margin-top: 25px;
+        color: white;
     }
     &__price {
         font-weight: bold;
@@ -35,5 +37,21 @@
         &:hover {
             color: $main-color;
         }
+    }
+    &-enter {
+        opacity: 0;
+        transform:  scale(0.8);
+        transition: transform 100ms ease-in;
+    }
+    &-enter-active {
+        opacity: 1;
+        transition: opacity 500ms ease-in;
+    }
+    &-exit {
+        opacity: 1;
+    }
+    &-exit-active {
+        opacity: 0;
+        transition: opacity 500ms ease-in;
     }
 }

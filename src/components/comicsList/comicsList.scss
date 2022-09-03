@@ -11,7 +11,7 @@
     &__item {
         transition: 0.3s transform;
         img {
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.621);
             width: 225px;
             height: 345px;
         }
@@ -20,17 +20,34 @@
             font-weight: bold;
             font-size: 14px;
             line-height: 18px;
+            color: white;
         }
         &-price {
             margin-top: 5px;
             font-weight: bold;
             font-size: 14px;
             line-height: 18px;
-            color: rgba(0, 0, 0, 0.6);
+            color: rgba(255, 255, 255, 0.6);
             text-transform: uppercase;
         }
         &:hover {
             transform: translateY(-5px);
+        }
+        &-enter {
+            opacity: 0;
+            transform:  scale(0.8);
+            transition: transform 100ms ease-in;
+        }
+        &-enter-active {
+            opacity: 1;
+            transition: opacity 500ms ease-in;
+        }
+        &-exit {
+            opacity: 1;
+        }
+        &-exit-active {
+            opacity: 0;
+            transition: opacity 500ms ease-in;
         }
     }
 }

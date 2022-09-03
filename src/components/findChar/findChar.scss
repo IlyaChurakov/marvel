@@ -1,0 +1,62 @@
+@import '../../style/variables.scss';
+
+.char {
+    &__find {
+        box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.25);
+        margin-top: 30px;
+        padding: 25px;
+        &_form {
+            &-title {
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 21px;
+                margin-bottom: 15px;
+                color: #ffffff;
+            }
+            button {
+                width: 101px;
+                height: 38px;
+                background: $main-color;
+                border: none;
+                color: white;
+                margin-left: 24px;
+            }
+        }
+        input {
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            width: 250px;
+            height: 38px;
+            border: none;
+            padding: 10px;
+        }
+        &_success {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 21px;
+            color: #03710E;
+            .link {
+                width: 101px;
+                height: 38px;
+                background: #5C5C5C;
+                border: none;
+                color: white;
+            }
+        }
+        &_error {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            margin-top: 20px;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 21px;
+            color: #9F0013;
+        }
+        
+    }
+}
+

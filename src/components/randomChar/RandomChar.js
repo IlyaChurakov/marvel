@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import './randomChar.scss';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import mjolnir from '../../resources/img/mjolnir.png';
 import useMarvelService from '../../services/MarvelService';
 

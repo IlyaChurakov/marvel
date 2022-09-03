@@ -2,6 +2,7 @@ import React, {useState, useEffect, useRef} from 'react'
 import Spinner from '../spinner/Spinner'
 import ErrorMessage from '../errorMessage/ErrorMessage'
 import './comicsList.scss';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import useMarvelService from '../../services/MarvelService'
 import {Link} from 'react-router-dom'
 
@@ -22,9 +23,6 @@ const ComicsList = (props) => {
 
     useEffect(() => {
         onRequest(offset, true)
-        // window.addEventListener('scroll', onScroll)
-
-        // return window.removeEventListener('scroll', onScroll)
     }, [])
 
     function onComicsListLoaded(newComicsList) {
@@ -54,34 +52,41 @@ const ComicsList = (props) => {
         const items =  arr.map((item, i) => {
 
             return (
-                <li 
-                    className="comics__item"
-                    tabIndex={0}
-                    key={i}
-                    ref={(el) => itemRefs.current[i] = el}
-                    onClick={() => {
-                        props.onComicsSelected(item.id)
-                        onFocus(i)
-                    }}
-                    onKeyPress={(e) => {
-                        if (e.key === ' ' || e.key === "Enter") {
+                <CSSTransition
+                    key={item.id}
+                    timeout={100}
+                    classNames='comics__item'>
+                    <li 
+                        className="comics__item"
+                        tabIndex={0}
+                        key={i}
+                        ref={(el) => itemRefs.current[i] = el}
+                        onClick={() => {
                             props.onComicsSelected(item.id)
                             onFocus(i)
-                        }
-                    }}>
-                    <Link to={`/comics/${item.id}`}>
-                        <img src={item.thumbnail} alt={item.title}/>
-                        <div className="comics__item-name">{item.title}</div>
-                        <div className="comics__item-price">{item.price}</div>
-                    </Link>
-                    
-                </li>
+                        }}
+                        onKeyPress={(e) => {
+                            if (e.key === ' ' || e.key === "Enter") {
+                                props.onComicsSelected(item.id)
+                                onFocus(i)
+                            }
+                        }}>
+                        <Link to={`/comics/${item.id}`}>
+                            <img src={item.thumbnail} alt={item.title}/>
+                            <div className="comics__item-name">{item.title}</div>
+                            <div className="comics__item-price">{item.price}</div>
+                        </Link>
+                        
+                    </li>
+                </CSSTransition>
             )
         })
         
         return (
             <ul className="comics__grid">
-                {items}
+                <TransitionGroup component={null}>
+                    {items}
+                </TransitionGroup>
             </ul>
         )
     }

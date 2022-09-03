@@ -52,10 +52,11 @@ input::-webkit-inner-spin-button {
     margin: 0 auto;
     padding: 50px 0 50px 0;
     position: relative;
-    .bg-decoration {
+    .ironman {
         position: absolute;
-        right: -174px;
-        bottom: -70px;
+        right: -220px;
+        width: 500px;
+        bottom: -73px;
         z-index: -1;
     }
 }

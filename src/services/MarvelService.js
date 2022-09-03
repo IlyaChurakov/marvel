@@ -18,6 +18,14 @@ const useMarvelService = () => {
         return _transformCharacter(res.data.results[0]);
     }
 
+    // ?name=captain%20flint&apikey=78338ebf0dab4d4be573e45ab0f07f72
+
+    const getCharacterByName = async (name) => {
+        let redactName = name.replace(/\s/g, '%20')
+        const res = await request(`${_apiBase}characters?name=${redactName}&${_apiKey}`);
+        return _transformCharacter(res.data.results[0]);
+    }
+
     const getAllComics = async (offset = _baseOffset) => {
         const res = await request(`${_apiBase}comics?limit=8&offset=${offset}&${_apiKey}`);
         return res.data.results.map(_transformComics);
@@ -52,7 +60,7 @@ const useMarvelService = () => {
         }
     }
 
-    return {loading, error, getAllCharacters, getCharacter, clearError, getAllComics, getComics}
+    return {loading, error, getAllCharacters, getCharacter, clearError, getAllComics, getComics, getCharacterByName}
     
 }
 
